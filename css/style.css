@@ -25,7 +25,6 @@ footer {
     margin-top: 50px;
 }
 
-/* Dark Mode Styles */
 body.dark-mode {
     background-color: #121212;
     color: #ffffff;
@@ -58,4 +57,13 @@ body.dark-mode .list-group-item {
 
 body.dark-mode .btn-close {
     filter: invert(1); 
+}
+
+.card1 {
+    background-color: #333; 
+    color: white; 
+    max-width: 400px; 
+    margin: 50px auto; 
+    border-radius: 10px; 
+    padding: 30px;
 }

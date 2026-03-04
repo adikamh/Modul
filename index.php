@@ -1,3 +1,4 @@
+<?php session_start(); ?>
 <!doctype html>
 <html lang="id">
   <head>
@@ -28,12 +29,20 @@
           class="collapse navbar-collapse justify-content-end"
           id="navbarNav"
         >
+        <?php if (!isset($_SESSION['username'])): ?>
+          <a href="controller/login.php" class="btn btn-outline-light btn-sm me-2">Login</a>
+        <?php else: ?>
+          <a href="controller/logout.php" class="btn btn-outline-light btn-sm me-2">Logout</a>
+        <?php endif; ?>
           <button id="btn-wishlist-nav" class="btn btn-outline-warning btn-sm me-2" data-bs-toggle="modal" data-bs-target="#whislistModal">
             ⭐ Wishlist (<span id="wishlist-count">0</span>)
           </button>
           <button id="btn-theme" class="btn btn-outline-light btn-sm">
             Mode Gelap
           </button>
+          <?php if (isset($_SESSION['username'])): ?>
+          <span class="text-white me-2">Halo, <?php echo htmlspecialchars($_SESSION['username']); ?></span>
+        <?php endif; ?>
         </div>
       </div>
     </nav>
