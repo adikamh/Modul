@@ -4,7 +4,6 @@ document.addEventListener('DOMContentLoaded', function() {
     const wishlistCountEl = document.getElementById('wishlist-count');
     const daftarItems = document.getElementById('daftar-items');
 
-    // -- LOGIKA THEME --
     if (localStorage.getItem('theme') === 'dark') {
         body.classList.add('dark-mode');
         if (btnTheme) btnTheme.innerText = 'Mode Terang';
@@ -23,7 +22,6 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // -- LOGIKA WISHLIST --
     let wishlist = JSON.parse(localStorage.getItem('wishlist') || '[]');
 
     function updateWishlistCount() {
@@ -49,10 +47,8 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
 
-    // Inisialisasi Tampilan
     updateWishlistCount();
 
-    // Event Delegasi untuk tombol "♥ Wishlist" di kartu produk
     document.body.addEventListener('click', function(e) {
         const wlBtn = e.target.closest('.btn-wishlist');
         if (wlBtn) {
@@ -70,7 +66,6 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 
-    // Event Delegasi untuk tombol "Beli" (Kurangi Stok)
     document.body.addEventListener('click', function(e) {
         const beliBtn = e.target.closest('.btn-detail');
         if (beliBtn) {
@@ -94,7 +89,6 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 
-    // Fungsi global agar bisa dipanggil dari atribut onclick HTML
     window.removeFromWishlist = function(idx) {
         wishlist.splice(idx, 1);
         localStorage.setItem('wishlist', JSON.stringify(wishlist));
@@ -111,7 +105,6 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     };
 
-    // Pastikan list terupdate saat modal dibuka
     const myModalEl = document.getElementById('whislistModal');
     if (myModalEl) {
         myModalEl.addEventListener('show.bs.modal', function () {
