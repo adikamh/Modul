@@ -28,6 +28,7 @@
           class="collapse navbar-collapse justify-content-end"
           id="navbarNav"
         >
+        <a href="controller/login.php" class="btn btn-outline-light btn-sm me-2">Login</a>
           <button id="btn-wishlist-nav" class="btn btn-outline-warning btn-sm me-2" data-bs-toggle="modal" data-bs-target="#whislistModal">
             ⭐ Wishlist (<span id="wishlist-count">0</span>)
           </button>
