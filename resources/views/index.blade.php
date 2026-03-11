@@ -1,3 +1,4 @@
+
 <!doctype html>
 <html lang="id">
   <head>
@@ -9,7 +10,7 @@
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="{{ asset('css/style.css') }}" />
   </head>
   <body>
     
@@ -28,7 +29,14 @@
           class="collapse navbar-collapse justify-content-end"
           id="navbarNav"
         >
-        <a href="controller/login.php" class="btn btn-outline-light btn-sm me-2">Login</a>
+        @if(session('user'))
+        <span class="text-white me-3">
+            {{ session('user')}}
+        </span>
+        <a href="{{ route( 'logout') }}" class="btn btn-danger btn-sm">Logout</a>
+        @else
+            <a href="{{ route('login') }}" class="btn btn-warning btn-sm">Login</a>
+        @endif
           <button id="btn-wishlist-nav" class="btn btn-outline-warning btn-sm me-2" data-bs-toggle="modal" data-bs-target="#whislistModal">
             ⭐ Wishlist (<span id="wishlist-count">0</span>)
           </button>
@@ -80,7 +88,7 @@
       <div class="row" id="container-barang">
         <div class="col-md-4 mb-4">
           <div class="card h-100">
-            <img src="assets/SEPATU_1.jpg" class="card-img-top" alt="Sepatu 1" />
+            <img src="{{ asset( 'assets/SEPATU_1.jpg')}}" class="card-img-top" alt="Sepatu 1" />
             <div class="card-body">
               <h5 class="card-title">Kalpji Run (Decathlon)</h5>
               <p class="card-text">Harga: Rp 1.429.000</p>
@@ -94,7 +102,7 @@
         </div>
         <div class="col-md-4 mb-4">
           <div class="card h-100">
-            <img src="assets/SEPATU_2.jpg" class="card-img-top" alt="Sepatu 2" />
+            <img src="{{ asset('assets/SEPATU_2.jpg')}}" class="card-img-top" alt="Sepatu 2" />
             <div class="card-body">
               <h5 class="card-title">Chunky Sneakers / "Dad Shoes"</h5>
               <p class="card-text">Harga: Rp 1.529.000</p>
@@ -108,7 +116,7 @@
         </div>
         <div class="col-md-4 mb-4">
           <div class="card h-100">
-            <img src="assets/SEPATU_3.jpg" class="card-img-top" alt="Sepatu 3" />
+            <img src="{{ asset('assets/SEPATU_3.jpg') }}" class="card-img-top" alt="Sepatu 3" />
             <div class="card-body">
               <h5 class="card-title">Vans Style 36 (Gum Sole)</h5>
               <p class="card-text">Harga: Rp 1.729.000</p>
@@ -176,6 +184,6 @@
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="script.js"></script>
+    <script src="{{ asset('js/script.js') }}"></script>
   </body>
 </html>
