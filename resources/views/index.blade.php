@@ -144,7 +144,7 @@
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tutup</button>
-            <button type="button" class="btn btn-danger" onclick="hapusWhislst()">Kosongkan</button>
+            <button type="button" class="btn btn-danger" onclick="hapusWishlist()">Kosongkan</button>
           </div>
         </div>
       </div>
